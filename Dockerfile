@@ -11,6 +11,10 @@ RUN apt-get update \
   && curl --silent --location --proto "=https" https://foundry.paradigm.xyz | bash \
   && /root/.foundry/bin/foundryup \
   && cp /root/.foundry/bin/* /usr/local/bin \
+  # Smart contract stuff (deploy before polymarket)
+  && git clone --branch main https://github.com/ryao-01/proxy-factories.git \
+  # Polymarket stuff
+  && git clone --branch main https://github.com/ryao-01/ctf-exchange.git \
   # Pull kurtosis-cdk package. --branch v0.2.29
   && git clone https://github.com/ryao-01/kurtosis-cdk.git \
   # Pull kurtosis-cdk dependencies.
@@ -27,10 +31,6 @@ RUN apt-get update \
   && git clone --branch main https://github.com/kurtosis-tech/redis-package \
   # More dependencies
   && git clone --branch main https://github.com/0xPolygon/cdk-data-availability.git \
-  # Smart contract stuff (deploy before polymarket)
-  && git clone --branch main https://github.com/ryao-01/proxy-factories.git \
-  # Polymarket stuff
-  && git clone --branch main https://github.com/ryao-01/ctf-exchange.git \
   # Make the ethereum package reference locally pulled dependencies.
   && sed -i '$ a\\nreplace:\n    github.com/kurtosis-tech/prometheus-package: ../prometheus-package\n    github.com/kurtosis-tech/postgres-package: ../postgres-package\n    github.com/bharath-123/db-adminer-package: ../db-adminer-package\n    github.com/kurtosis-tech/redis-package: ../redis-package' /ethereum-package/kurtosis.yml \
   # Pull optimism package dependencies.
