@@ -16,9 +16,9 @@ RUN apt-get update \
   # Polymarket stuff
   && git clone --branch main https://github.com/ryao-01/ctf-exchange.git \
   # Pull kurtosis-cdk package.
-  && git clone --branch feat/antithesis-integration https://github.com/leovct/kurtosis-cdk \
+  # && git clone --branch feat/antithesis-integration https://github.com/leovct/kurtosis-cdk \
   # && git clone --branch v0.2.29 https://github.com/0xPolygon/kurtosis-cdk.git \
-  # && git clone --branch main https://github.com/ryao-01/kurtosis-cdk.git \
+  && git clone --branch main https://github.com/ryao-01/kurtosis-cdk.git \
   # Pull kurtosis-cdk dependencies.
   # The package has other dependencies (blockscout, prometheus and grafana) but they shouldn't be used when testing the package with Antithesis.
   && git clone --branch 4.4.0 https://github.com/ethpandaops/ethereum-package \
