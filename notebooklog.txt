@@ -1,0 +1,46 @@
+20878736,:"There was an error executing Starlark code ","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100259,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20878864,:"An error occurred executing instruction (number 112) at github.com/0xPolygon/kurtosis-cdk/lib/zkevm_bridge.star[67:21]:","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100260,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879136,:"  add_service(name=\"zkevm-bridge-proxy-001\", config=ServiceConfig(image=\"haproxy:3.1-bookworm\", ports={\"web-ui\": PortSpec(number=80, application_protocol=\"http\")}, public_ports={}, files={\"/usr/local/etc/haproxy/\": Directory(artifact_names=[\"bridge-ui-proxy\"])}))","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100261,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879224,:"  Caused by: Unexpected error occurred starting service 'zkevm-bridge-proxy-001'","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100262,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879464,:"  Caused by: An error occurred waiting for all TCP and UDP ports to be open for service 'zkevm-bridge-proxy-001' with private IP '172.16.0.29'; this is usually due to a misconfiguration in the service itself, so here are the logs:","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100263,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879528,:"  An error occurred while getting the service logs.","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100264,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879656,:"   Error:An error occurred getting user service logs for user service with UUID 'c0b6e5dc938d4132a2c757aacb6feda9'","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100265,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879848,:"  Caused by: An error occurred getting logs for container '/zkevm-bridge-proxy-001--c0b6e5dc938d4132a2c757aacb6feda9' for user service with UUID 'c0b6e5dc938d4132a2c757aacb6feda9'","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100266,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20879984,:"  Caused by: An error occurred getting logs for container ID '8edbb229a1e8a862614ba0715f5bddfeff7e857b33bea428cb9e0428efc3ad93'","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100267,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20880264,:"  Caused by: Error response from daemon: failed to obtain logs for Container '8edbb229a1e8a862614ba0715f5bddfeff7e857b33bea428cb9e0428efc3ad93': this container is using the 'antithesis' log driver, please check the notebook for logs: this container is not logging output","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100268,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20880360,:"  Caused by: An error occurred while waiting for all TCP and UDP ports to be open","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100269,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20880576,:"  Caused by: Unsuccessful ports check for IP '172.16.0.29' and port spec '{privatePortSpec:0xc000ad4d20}', even after '240' retries with '500' milliseconds in between retries. Timeout '2m0s' has been reached","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100270,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20880720,:"  Caused by: An error occurred while calling network address '172.16.0.29:80' with port protocol 'TCP' and using time out '200ms'","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100271,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20880784,:"  Caused by: dial tcp 172.16.0.29:80: i/o timeout","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758782100272,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20881984,:"","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758783876259,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20882032,:"Error encountered running Starlark code.","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758783876260,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20882040,:"","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758783968259,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+20882112,:"⭐ us on GitHub - https://github.com/kurtosis-tech/kurtosis","source":{"command_id":"9lhR7GIr69houIvQ3/BGNmzX9Nk","name":"bash_command","stream":"info"},"moment":{"input_hash":"8830788072935533820","_vtime_ticks":1758783968260,"session_id":"1b07a2ab91d7bcc24c41fbd40162073e-28-0"}},
+
+
+
+> add_service name="zkevm-bridge-service-001" config=ServiceConfig(image="hermeznetwork/zkevm-bridge-service:v0.6.0-RC7", ports={"grpc": PortSpec(number=9090, application_protocol="grpc"), "rpc": PortSpec(number=8080, application_protocol="http")}, public_ports={}, files={"/etc/zkevm": Directory(artifact_names=["bridge-config-artifact", "claimtxmanager-keystore"])}, entrypoint=["/app/zkevm-bridge"], cmd=["run", "--cfg", "/etc/zkevm/bridge-config.toml"])
+278.884
+There was an error executing Starlark code 
+278.884
+An error occurred executing instruction (number 105) at github.com/0xPolygon/kurtosis-cdk/cdk_bridge_infra.star[22:21]:
+278.884
+  add_service(name="zkevm-bridge-service-001", config=ServiceConfig(image="hermeznetwork/zkevm-bridge-service:v0.6.0-RC7", ports={"grpc": PortSpec(number=9090, application_protocol="grpc"), "rpc": PortSpec(number=8080, application_protocol="http")}, public_ports={}, files={"/etc/zkevm": Directory(artifact_names=["bridge-config-artifact", "claimtxmanager-keystore"])}, entrypoint=["/app/zkevm-bridge"], cmd=["run", "--cfg", "/etc/zkevm/bridge-config.toml"]))
+278.884
+  Caused by: Unexpected error occurred starting service 'zkevm-bridge-service-001'
+278.884
+  Caused by: An error occurred doing files artifacts expansion to get user service volumes
+278.884
+  Caused by: An error occurred running files artifacts expander for service '42ddfe4069c24174bda1e98f592f6d77'
+278.884
+  Caused by: An error occurred creating files artifacts expander container 'files-artifacts-expander--270f6084af1741b18980a455cd6978b8--07011a86d71244f0b0e2fc9139e71a2f' for service '42ddfe4069c24174bda1e98f592f6d77'
+278.884
+  Caused by: An error occurred checking if container '9c027e27bc71a34863cbd6244aca7bbd62a7e3f4113449c641809e689e203196' is running
+278.884
+  Caused by: An error occurred getting ContainerStatus from Docker container state 'stopped'
+278.884
+  Caused by: No container status matches Docker container state 'stopped'; this is a bug in Kurtosis
+278.885
+278.885
+Error encountered running Starlark code.
+278.885
