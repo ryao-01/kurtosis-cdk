@@ -37,13 +37,13 @@ RUN apt-get update \
   && sed -i '$ a\\nreplace:\n    github.com/kurtosis-tech/prometheus-package: ../prometheus-package\n    github.com/kurtosis-tech/postgres-package: ../postgres-package\n    github.com/bharath-123/db-adminer-package: ../db-adminer-package\n    github.com/kurtosis-tech/redis-package: ../redis-package' /ethereum-package/kurtosis.yml \
   # Pull optimism package dependencies.
   # It relies on the ethereum package which is already pulled.
+  # && cat /kurtosis-cdk/kurtosis.yml \
   && sed -i '$ a\\nreplace:\n    github.com/ethpandaops/ethereum-package: ../ethereum-package' /optimism-package/kurtosis.yml
 
 FROM scratch
-LABEL author="devtools@polygon.technology"
-LABEL description="Antithesis config image for kurtosis-cdk"
+LABEL author="richard.yao@antithesis.com"
+LABEL description="Antithesis config image for kurtosis-cdk - rich"
 
-# COPY --from=builder . /kurtosis-cdk
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
 COPY --from=builder /proxy-factories /proxy-factories
 COPY --from=builder /ctf-exchange /ctf-exchange
