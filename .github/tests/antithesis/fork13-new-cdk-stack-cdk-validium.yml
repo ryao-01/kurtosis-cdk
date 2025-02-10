@@ -17,4 +17,3 @@ args:
   zkevm_prover_image: hermeznetwork/zkevm-prover:v9.0.0-RC2-fork.13
   consensus_contract_type: cdk-validium
   sequencer_type: erigon
-  additional_services:

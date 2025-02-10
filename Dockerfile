@@ -7,7 +7,7 @@ RUN apt-get update \
   && apt-get install --yes --no-install-recommends libssl-dev ca-certificates jq git curl make \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  #Pull and install Foundry
+  # Pull and install Foundry
   && curl --silent --location --proto "=https" https://foundry.paradigm.xyz | bash \
   && /root/.foundry/bin/foundryup \
   && cp /root/.foundry/bin/* /usr/local/bin \
@@ -15,8 +15,10 @@ RUN apt-get update \
   && git clone --branch main https://github.com/ryao-01/proxy-factories.git \
   # Polymarket stuff
   && git clone --branch main https://github.com/ryao-01/ctf-exchange.git \
-  # Pull kurtosis-cdk package. --branch v0.2.29
-  && git clone https://github.com/ryao-01/kurtosis-cdk.git \
+  # Pull kurtosis-cdk package.
+  && git clone --branch feat/antithesis-integration https://github.com/leovct/kurtosis-cdk \
+  # && git clone --branch v0.2.29 https://github.com/0xPolygon/kurtosis-cdk.git \
+  # && git clone --branch main https://github.com/ryao-01/kurtosis-cdk.git \
   # Pull kurtosis-cdk dependencies.
   # The package has other dependencies (blockscout, prometheus and grafana) but they shouldn't be used when testing the package with Antithesis.
   && git clone --branch 4.4.0 https://github.com/ethpandaops/ethereum-package \
@@ -41,7 +43,10 @@ FROM scratch
 LABEL author="devtools@polygon.technology"
 LABEL description="Antithesis config image for kurtosis-cdk"
 
+# COPY --from=builder . /kurtosis-cdk
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
+COPY --from=builder /proxy-factories /proxy-factories
+COPY --from=builder /ctf-exchange /ctf-exchange
 COPY --from=builder /ethereum-package /ethereum-package
 COPY --from=builder /prometheus-package /prometheus-package
 COPY --from=builder /postgres-package /postgres-package
