@@ -7,10 +7,6 @@ RUN apt-get update \
   && apt-get install --yes --no-install-recommends libssl-dev ca-certificates jq git curl make grep \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  # Pull and install Foundry
-  && curl --silent --location --proto "=https" https://foundry.paradigm.xyz | bash \
-  && /root/.foundry/bin/foundryup \
-  && cp /root/.foundry/bin/* /usr/local/bin \
   # Smart contract stuff (deploy before polymarket)
   && git clone --branch main https://github.com/ryao-01/proxy-factories.git \
   # Polymarket stuff
@@ -40,9 +36,19 @@ RUN apt-get update \
   # && cat /kurtosis-cdk/kurtosis.yml \
   && sed -i '$ a\\nreplace:\n    github.com/ethpandaops/ethereum-package: ../ethereum-package' /optimism-package/kurtosis.yml
 
-FROM scratch
+FROM debian:stable-slim
 LABEL author="richard.yao@antithesis.com"
 LABEL description="Antithesis config image for kurtosis-cdk"
+
+RUN apt-get update \
+  && apt-get --yes upgrade \
+  && apt-get install --yes --no-install-recommends libssl-dev ca-certificates jq git curl make grep \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* \
+  # Pull and install Foundry
+  && curl --silent --location --proto "=https" https://foundry.paradigm.xyz | bash \
+  && /root/.foundry/bin/foundryup \
+  && cp /root/.foundry/bin/* /usr/local/bin 
 
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
 COPY --from=builder /proxy-factories /proxy-factories
