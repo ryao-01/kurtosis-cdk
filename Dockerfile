@@ -4,7 +4,7 @@ FROM debian:stable-slim as builder
 # hadolint ignore=DL3008
 RUN apt-get update \
   && apt-get --yes upgrade \
-  && apt-get install --yes --no-install-recommends libssl-dev ca-certificates jq git curl make \
+  && apt-get install --yes --no-install-recommends libssl-dev ca-certificates jq git curl make grep \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   # Pull and install Foundry
