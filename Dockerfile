@@ -15,7 +15,7 @@ RUN apt-get update \
   && git clone --branch main https://github.com/ryao-01/proxy-factories.git \
   # Polymarket stuff
   && git clone --branch main https://github.com/ryao-01/ctf-exchange.git \
-  # Pull kurtosis-cdk package.
+  # Pull kurtosis-cdk package from my repo.
   # && git clone --branch feat/antithesis-integration https://github.com/leovct/kurtosis-cdk \
   # && git clone --branch v0.2.29 https://github.com/0xPolygon/kurtosis-cdk.git \
   && git clone --branch main https://github.com/ryao-01/kurtosis-cdk.git \
