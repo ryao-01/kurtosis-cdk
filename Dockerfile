@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y nodejs npm
 
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
-COPY --from=builder /proxy-factories /proxy-factories
+COPY --frnpmom=builder /proxy-factories /proxy-factories
 COPY --from=builder /ctf-exchange /ctf-exchange
 COPY --from=builder /ethereum-package /ethereum-package
 COPY --from=builder /prometheus-package /prometheus-package
@@ -60,7 +60,7 @@ COPY --from=builder /optimism-package /optimism-package
 
 WORKDIR /kurtosis-cdk
 # Install ethers.js and other npm dependencies 
-RUN npm install ethers 
+RUN npm install --save ethers 
 # Optional verification steps (add these for build-time checks) 
 RUN node -v 
 RUN npm -v 
