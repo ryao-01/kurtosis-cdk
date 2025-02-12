@@ -44,6 +44,9 @@ FROM debian:stable-slim
 LABEL author="richard.yao@antithesis.com"
 LABEL description="Antithesis config image for kurtosis-cdk"
 
+# Install Node.js and npm in the final image 
+RUN apt-get update && apt-get install -y nodejs npm
+
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
 COPY --from=builder /proxy-factories /proxy-factories
@@ -56,3 +59,9 @@ COPY --from=builder /redis-package /redis-package
 COPY --from=builder /optimism-package /optimism-package
 
 WORKDIR /kurtosis-cdk
+# Install ethers.js and other npm dependencies 
+RUN npm install ethers 
+# Optional verification steps (add these for build-time checks) 
+RUN node -v 
+RUN npm -v 
+RUN node -e "try { require('ethers'); console.log('ethers.js installed successfully'); } catch (e) { console.error('ethers.js installation failed', e); process.exit(1); }"
