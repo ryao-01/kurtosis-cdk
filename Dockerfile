@@ -44,7 +44,7 @@ FROM debian:stable-slim
 LABEL author="richard.yao@antithesis.com"
 LABEL description="Antithesis config image for kurtosis-cdk"
 
-COPY --from=builder /root /root
+COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
 COPY --from=builder /proxy-factories /proxy-factories
 COPY --from=builder /ctf-exchange /ctf-exchange
