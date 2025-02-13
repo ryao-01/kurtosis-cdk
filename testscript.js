@@ -25,7 +25,7 @@ async function sendMaticEthers() {
 
         console.log("Raw Transaction:", rawTx);
 
-        const transactionResponse = await provider.sendTransaction(rawTx);
+        const transactionResponse = await wallet.sendTransaction(rawTx);
         // This transaction response contains the tx hash
         console.log("Transaction Response:", transactionResponse); 
         // Wait for receipt
