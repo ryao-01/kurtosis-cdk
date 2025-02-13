@@ -56,13 +56,12 @@ COPY --from=builder /redis-package /redis-package
 COPY --from=builder /optimism-package /optimism-package
 
 WORKDIR /kurtosis-cdk
-# Install ethers.js and other npm dependencies 
-RUN npm install ethers 
-# Optional verification steps (add these for build-time checks) 
-RUN node -v 
-RUN npm -v 
-RUN node -e "try { require('ethers'); console.log('ethers.js installed successfully'); } catch (e) { console.error('ethers.js installation failed', e); process.exit(1); }"
-RUN ls && cat Dockerfile
+# Install web3.js and other npm dependencies 
+RUN npm install web3 
+# Optional verification steps 
+RUN node -e "try { require('web3'); console.log('web3.js installed successfully'); } catch (e) { console.error('web3.js installation failed', e); process.exit(1); }"
+RUN ls 
+RUN cat Dockerfile
 RUN node ./testscript.js
 
 
