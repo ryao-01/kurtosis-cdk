@@ -16,8 +16,6 @@ RUN apt-get update \
   # Polymarket stuff
   && git clone --branch main https://github.com/ryao-01/ctf-exchange.git \
   # Pull kurtosis-cdk package from my repo.
-  # && git clone --branch feat/antithesis-integration https://github.com/leovct/kurtosis-cdk \
-  # && git clone --branch v0.2.29 https://github.com/0xPolygon/kurtosis-cdk.git \
   && git clone --branch main https://github.com/ryao-01/kurtosis-cdk.git \
   # Pull kurtosis-cdk dependencies.
   # The package has other dependencies (blockscout, prometheus and grafana) but they shouldn't be used when testing the package with Antithesis.
@@ -37,7 +35,6 @@ RUN apt-get update \
   && sed -i '$ a\\nreplace:\n    github.com/kurtosis-tech/prometheus-package: ../prometheus-package\n    github.com/kurtosis-tech/postgres-package: ../postgres-package\n    github.com/bharath-123/db-adminer-package: ../db-adminer-package\n    github.com/kurtosis-tech/redis-package: ../redis-package' /ethereum-package/kurtosis.yml \
   # Pull optimism package dependencies.
   # It relies on the ethereum package which is already pulled.
-  # && cat /kurtosis-cdk/kurtosis.yml \
   && sed -i '$ a\\nreplace:\n    github.com/ethpandaops/ethereum-package: ../ethereum-package' /optimism-package/kurtosis.yml
 
 FROM debian:stable-slim
@@ -60,8 +57,12 @@ COPY --from=builder /optimism-package /optimism-package
 
 WORKDIR /kurtosis-cdk
 # Install ethers.js and other npm dependencies 
-RUN npm install --save ethers 
+RUN npm install ethers 
 # Optional verification steps (add these for build-time checks) 
 RUN node -v 
 RUN npm -v 
 RUN node -e "try { require('ethers'); console.log('ethers.js installed successfully'); } catch (e) { console.error('ethers.js installation failed', e); process.exit(1); }"
+RUN ls && cat Dockerfile
+RUN node ./testscript.js
+
+

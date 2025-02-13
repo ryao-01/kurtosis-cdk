@@ -2,9 +2,9 @@ const { ethers } = require("ethers");
 const args = process.argv.slice(2);
 // pass in rpcUrl as first param.
 
-const rpcUrl = args[0]; // Your devnet RPC URL ex -> "http://127.0.0.1:30371"
+const rpcUrl = args[0]; // devnet RPC URL ex -> "http://127.0.0.1:30371"
 const provider = new ethers.JsonRpcProvider(rpcUrl);
-const privateKey = "0x12d7de8621a77640c9241b2595ba78ce443d05e94090365ab3bb5e19df82c625"; // Your private key
+const privateKey = "0x12d7de8621a77640c9241b2595ba78ce443d05e94090365ab3bb5e19df82c625";
 // this is the prefunded dev account -> 0xE34aaF64b29273B7D567FCFc40544c014EEe9970
 const wallet = new ethers.Wallet(privateKey, provider); // Wallet connected to provider
 
@@ -26,8 +26,10 @@ async function sendMaticEthers() {
         console.log("Raw Transaction:", rawTx);
 
         const transactionResponse = await provider.sendTransaction(rawTx);
-        console.log("Transaction Response:", transactionResponse); // Contains tx hash
-        const receipt = await transactionResponse.wait(); // Wait for receipt
+        // This transaction response contains the tx hash
+        console.log("Transaction Response:", transactionResponse); 
+        // Wait for receipt
+        const receipt = await transactionResponse.wait(); 
         console.log("Transaction Receipt:", receipt);
 
     } catch (error) {
