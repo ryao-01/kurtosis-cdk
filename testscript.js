@@ -1,8 +1,8 @@
-const Web3 = require('web3');
+const { Web3 } = require("web3")
 
 const args = process.argv.slice(2);
 const rpcUrl = args[0]; // devnet RPC URL ex -> "http://127.0.0.1:30371"
-const web3 = new Web3(rpcUrl);
+const web3 = Web3.providers.HttpProvider(rpcUrl);
 
 const privateKey = "0x12d7de8621a77640c9241b2595ba78ce443d05e94090365ab3bb5e19df82c625";
 const account = web3.eth.accounts.privateKeyToAccount(privateKey);
