@@ -9,6 +9,7 @@ services:
       polygon-net:
         ipv4_address: 10.0.0.10
     ports:
+      #- "8545:8545"
 
   web3stuff:
     image: 'web3stuff:latest'
