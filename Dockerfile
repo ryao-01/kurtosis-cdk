@@ -37,7 +37,7 @@ RUN apt-get update \
   # It relies on the ethereum package which is already pulled.
   && sed -i '$ a\\nreplace:\n    github.com/ethpandaops/ethereum-package: ../ethereum-package' /optimism-package/kurtosis.yml
 
-FROM debian:stable-slim
+FROM scratch
 LABEL author="richard.yao@antithesis.com"
 LABEL description="Antithesis config image for kurtosis-cdk"
 
@@ -51,5 +51,7 @@ COPY --from=builder /postgres-package /postgres-package
 COPY --from=builder /db-adminer-package /db-adminer-package
 COPY --from=builder /redis-package /redis-package
 COPY --from=builder /optimism-package /optimism-package
+COPY compose.yaml /docker-compose.yaml
+#ADD config/license /license
 
-WORKDIR /kurtosis-cdk
+#WORKDIR /kurtosis-cdk
