@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  kurtosis-cdk:
+    image: 'kurtosis-cdk:latest'
+    container_name: kurtosis-cdk
+    hostname: kurtosis-cdk
+    networks:
+      polygon-net:
+        ipv4_address: 10.0.0.10
+    ports:
+
+  web3stuff:
+    image: 'web3stuff:latest'
+    container_name: client
+    hostname: web3stuff
+    networks:
+      polygon-net:
+        ipv4_address: 10.0.0.11
+    user: root
+
+networks:
+  polygon-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24

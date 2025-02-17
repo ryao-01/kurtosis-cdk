@@ -41,10 +41,7 @@ FROM debian:stable-slim
 LABEL author="richard.yao@antithesis.com"
 LABEL description="Antithesis config image for kurtosis-cdk"
 
-# Install Node.js and npm in the final image 
-RUN apt-get update && apt-get install -y nodejs npm
-
-COPY --from=builder /usr/local/bin /usr/local/bin
+#COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /kurtosis-cdk /kurtosis-cdk
 COPY --from=builder /proxy-factories /proxy-factories
 COPY --from=builder /ctf-exchange /ctf-exchange
@@ -56,7 +53,3 @@ COPY --from=builder /redis-package /redis-package
 COPY --from=builder /optimism-package /optimism-package
 
 WORKDIR /kurtosis-cdk
-# Install web3.js and other npm dependencies 
-RUN npm install web3 
-# Optional verification steps 
-RUN node -e "try { require('web3'); console.log('web3.js installed successfully'); } catch (e) { console.error('web3.js installation failed', e); process.exit(1); }"
