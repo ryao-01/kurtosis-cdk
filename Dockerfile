@@ -40,6 +40,6 @@ COPY --from=builder /postgres-package /postgres-package
 COPY --from=builder /db-adminer-package /db-adminer-package
 COPY --from=builder /redis-package /redis-package
 COPY --from=builder /optimism-package /optimism-package
-COPY compose.yaml /docker-compose.yaml
+COPY kurtosis-cdk/compose.yaml kurtosis-cdk/docker-compose.yaml
 
-#WORKDIR /kurtosis-cdk
+WORKDIR /kurtosis-cdk
