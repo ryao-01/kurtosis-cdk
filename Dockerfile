@@ -15,7 +15,7 @@ RUN apt-get update \
   && git clone --branch 1.2.0 https://github.com/ethpandaops/optimism-package \
   # Make the kurtosis-cdk package reference locally pulled dependencies.
   # This also includes smart contract stuff and Polymarket stuff. 
-  && sed -i '$ a\\nreplace:\n    github.com/ethpandaops/ethereum-package: ../ethereum-package\n    github.com/ethpandaops/optimism-package: ../optimism-package\n    github.com/kurtosis-tech/redis-package: ../redis-package\n    github.com/kurtosis-tech/postgres-package: ../postgres-package\n    github.com/bharath-123/db-adminer-package: ../db-adminer-package\n    github.com/kurtosis-tech/prometheus-package: ../prometheus-package' /kurtosis-cdk/kurtosis.yml \
+  && sed -i '$ a\\nreplace:\n    github.com/ethpandaops/ethereum-package: ../ethereum-package\n    github.com/ethpandaops/optimism-package: ../optimism-package\n    github.com/kurtosis-tech/redis-package: ../redis-package\n    github.com/kurtosis-tech/postgres-package: ../postgres-package\n    github.com/bharath-123/db-adminer-package: ../db-adminer-package\n    github.com/kurtosis-tech/prometheus-package: ../prometheus-package' /kurtosis-cdk/kurtosis-cdk/kurtosis.yml \
   # Pull ethereum package dependencies.
   && git clone --branch main https://github.com/kurtosis-tech/prometheus-package \
   && git clone --branch main https://github.com/kurtosis-tech/postgres-package \
